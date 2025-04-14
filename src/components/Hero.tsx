@@ -14,23 +14,23 @@ const Hero = () => {
   // Array contendo os dados para cada item do Hero, incluindo a imagem e o conteúdo
   const heroItems: HeroItem[] = [
     {
-      path: "foodBanner.png",
+      path: "halymenia.jpeg",
       topTitle: "Em destaque",
-      bigTitle: "Dried Fruits Best Healthy",
-      descTitle: "Sarting At",
-      price: 79.99,
+      bigTitle: "Halymenia",
+      descTitle: "Por apenas",
+      price: 39.99,
       isMain: true, // O primeiro item é a imagem principal
     },
     {
-      path: "foodBanner.png", // Você pode usar um caminho de imagem diferente aqui
-      bigTitle: "Dried Fruits Best Healthy",
+      path: "caluerpa.jpeg", // Você pode usar um caminho de imagem diferente aqui
+      bigTitle: "Caluerpa",
       descTitle: "Sarting At",
       price: 79.99,
       isMain: false,
     },
     {
-      path: "foodBanner.png", // Você pode usar um caminho de imagem diferente aqui
-      bigTitle: "Dried Fruits Best Healthy",
+      path: "codium.jpeg", // Você pode usar um caminho de imagem diferente aqui
+      bigTitle: "Codium",
       descTitle: "Sarting At",
       price: 79.99,
       isMain: false,
@@ -45,7 +45,7 @@ const Hero = () => {
         {/* Mapeia o array de heroItems para renderizar cada item */}
         {heroItems.map((item, index) => {
           // Define o estilo de background para cada item dinamicamente
-          const bg_style = `bg-[linear-gradient(to_right,rgb(5,5,20,1),rgb(5,5,20,0.2)),url('/img/${item.path}')] bg-no-repeat bg-center bg-cover`;
+          const bg_style = `bg-[linear-gradient(to_right,rgb(5,5,20,1),rgb(5,5,20,0.2)),url('/img/Banner_Hero/${item.path}')] bg-no-repeat bg-center bg-cover`;
 
           /* SEGUNDO RETURN DENTRO DO RETURN PRINCIPAL, ESSE APENAS RENDERIZA OS PRODUTOS */
           return (
