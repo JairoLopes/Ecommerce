@@ -1,0 +1,2 @@
+export const icon__wrapper: string =
+  "border border-gray-400 rounded-full w-[50px] h-[50px] grid place-items-center text-[22px]";
