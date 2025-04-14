@@ -1,4 +1,4 @@
-import React from "react";
+
 
 // Define uma interface para os dados de cada item do Hero
 interface HeroItem {
