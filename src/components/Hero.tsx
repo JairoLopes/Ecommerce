@@ -25,7 +25,7 @@ const Hero = () => {
     },
     {
       id: 101, // Adicione um ID único
-      path: "caluerpa.jpeg",
+      path: "caulerpa.jpeg",
       bigTitle: "Caulerpa",
       descTitle: "Por apenas",
       price: 42.0,
@@ -43,8 +43,11 @@ const Hero = () => {
 
   const handleAddToCart = (item: HeroItem) => {
     addItem({ id: item.id, nome: item.bigTitle, preco: item.price });
-    // REMOVIDO: alert(`${item.bigTitle} adicionado ao carrinho!`); // Feedback visual
   };
+
+  /*   const bg_style2 = `bg-[linear-gradient(to_right,rgb(5,5,20,1),rgb(5,5,20,0.2)),url('/img/Banner_Hero/halymenia.jpeg')] bg-no-repeat bg-center bg-cover`;
+  const bg_style3 = `bg-[linear-gradient(to_right,rgb(5,5,20,1),rgb(5,5,20,0.2)),url('/img/Banner_Hero/caulerpa.jpeg')] bg-no-repeat bg-center bg-cover`;
+  const bg_style4 = `bg-[linear-gradient(to_right,rgb(5,5,20,1),rgb(5,5,20,0.2)),url('/img/Banner_Hero/codium.jpeg')] bg-no-repeat bg-center bg-cover`; */
 
   return (
     <div
