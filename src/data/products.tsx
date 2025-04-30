@@ -2,7 +2,7 @@ export const plantasMarinhasData = [
   {
     id: 1,
     nome: "Chaetomorpha",
-    preco: 35.0,
+    preco: 34.0,
     descricao:
       "Macroalga que absorve nitratos e fosfatos e serve de abrigo para micro-organismos.",
     beneficios: [
@@ -142,7 +142,7 @@ export const plantasMarinhasData = [
   {
     id: 12,
     nome: "Halymenia",
-    preco: 65.0,
+    preco: 40.0,
     descricao:
       "Alga ornamental de crescimento lento que absorve nutrientes e ajuda a estabilizar o ambiente.",
     beneficios: [
@@ -155,7 +155,7 @@ export const plantasMarinhasData = [
   },
   {
     id: 14,
-    nome: "Ceratopteris thalictroides",
+    nome: "Ceratopteris",
     preco: 45.0,
     descricao:
       "Planta de água doce adaptada que absorve nutrientes e oferece abrigo natural.",

@@ -1,9 +1,20 @@
-import { FaSearch, FaRegUser } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 import { icon__wrapper } from "../style";
 import CartCount from "./CartCount";
 import { IoCartOutline } from "react-icons/io5";
+import MenuBar from "./MenuBar";
 
-const NavBar = () => {
+interface NavBarProps {
+  onSearch: (term: string) => void;
+  onOpenCart: () => void; // Prop para abrir o carrinho
+}
+
+const NavBar = ({ onSearch, onOpenCart }: NavBarProps) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    onSearch(value);
+  };
+
   return (
     /* Container de toda NAVBAR */
     <div className="sticky top-0 bg-white z-10">
@@ -12,14 +23,17 @@ const NavBar = () => {
         {/* Subcontainer que engloba todo conteudo da NAVBAR */}
         <div className="flex justify-between items-center p-6">
           {/* LOGO */}
-          <h1 className="text-3xl md:text-4xl font-bold">Logo</h1>
+          <h1 className="font-garamond font-bold text-accentDark tracking-widest text-3xl md:text-4xl ">
+            Nuphar
+          </h1>
 
           {/* Div que engloba a barra de pesquisa(INPUT)*/}
           <div className="relative w-full max-w-[500px]">
             <input
               className="bg-gray-200 border-none px-6 py-3 rounded-[30px] w-full focus:outline-2 focus:outline-gray-900"
               type="text"
-              placeholder="Search Product..."
+              placeholder="Buscar Espécies..."
+              onChange={handleInputChange}
             />
             <FaSearch
               size={20}
@@ -27,21 +41,24 @@ const NavBar = () => {
             />
           </div>
 
-          {/* Div que engloba os ícones de login */}
+          {/* Div que engloba os ícones */}
           <div className="flex gap-4">
-            {/* CONTAINER QUE ENGLOBA O ÍCONE USUARIO*/}
-            <div className={`group ${icon__wrapper}`}>
-              <FaRegUser className="group-hover:-translate-y-1 transition-all duration-1000" />
-            </div>
-
-            {/* CONTAINER QUE ENGLOBA O ÍCONE USUARIO*/}
-            <div className={`${icon__wrapper} relative`}>
+            {/* CONTAINER QUE ENGLOBA O ÍCONE CARRINHO*/}
+            <div
+              className={`${icon__wrapper} relative cursor-pointer`}
+              onClick={onOpenCart}
+            >
+              {" "}
+              {/* Adiciona onClick */}
               <IoCartOutline />
               <CartCount size="w-[22px] h-[22px]" />
             </div>
           </div>
         </div>
       </div>
+
+      {/* MenuBar */}
+      <MenuBar />
     </div>
   );
 };

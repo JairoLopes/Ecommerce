@@ -1,11 +1,56 @@
+import { useState } from "react";
 import { plantasMarinhasData } from "../data/products";
+import { useCart } from "./CartContext";
 
-const Plants = () => {
+interface PlantsProps {
+  searchTerm: string;
+}
+
+const Plants = ({ searchTerm }: PlantsProps) => {
+  const [paginaAtual, setPaginaAtual] = useState(1);
+  const produtosPorPagina = 6;
+  const { addItem } = useCart(); // Obtém a função addItem do contexto
+
+  const produtosFiltrados = plantasMarinhasData.filter((planta) =>
+    planta.nome.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const numeroTotalDePaginas = Math.ceil(
+    produtosFiltrados.length / produtosPorPagina
+  );
+
+  const produtosExibidos = produtosFiltrados.slice(
+    (paginaAtual - 1) * produtosPorPagina,
+    paginaAtual * produtosPorPagina
+  );
+
+  const irParaPaginaAnterior = () => {
+    if (paginaAtual > 1) {
+      setPaginaAtual(paginaAtual - 1);
+    }
+  };
+
+  const irParaProximaPagina = () => {
+    if (paginaAtual < numeroTotalDePaginas) {
+      setPaginaAtual(paginaAtual + 1);
+    }
+  };
+
+  const handleAddToCart = (item: (typeof plantasMarinhasData)[0]) => {
+    addItem({ id: item.id, nome: item.nome, preco: item.preco });
+    // REMOVIDO: alert(`${item.nome} adicionado ao carrinho!`); // Feedback visual
+  };
+
   return (
-    <div className="pt-16">
-      {/* Div que engloba todo o PLANTS */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 p-4">
-        {plantasMarinhasData.map((item) => (
+    <div className="pt-16 md:pt-5 pb-12 max-md:px-5 md:px-10">
+      {/* TÍTULO */}
+      <h2 className="text-gray-700 text-4xl text-center font-bold mb-12">
+        Nossas Espécies
+      </h2>
+
+      {/* Div que engloba os produtos da página atual */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {produtosExibidos.map((item) => (
           <PlantCard
             key={item.id}
             nome={item.nome}
@@ -15,8 +60,33 @@ const Plants = () => {
             nivelCuidado={item.nivelCuidado}
             requerimentoLuminosidade={item.requerimentoLuminosidade}
             requerimentoFluxo={item.requerimentoFluxo}
+            onAddToCart={() => handleAddToCart(item)} // Passa a função para o PlantCard
           />
         ))}
+      </div>
+
+      {/* Div para os botões de navegação */}
+      <div className="flex justify-center items-center gap-4 mt-8">
+        {/* Botão para ir para a página anterior. */}
+        <button
+          onClick={irParaPaginaAnterior}
+          disabled={paginaAtual === 1}
+          className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded disabled:opacity-50"
+        >
+          Anterior
+        </button>
+        {/* Exibe a página atual e o total de páginas. */}
+        <span className="text-gray-700">
+          Página {paginaAtual} de {numeroTotalDePaginas}
+        </span>
+        {/* Botão para ir para a próxima página. */}
+        <button
+          onClick={irParaProximaPagina}
+          disabled={paginaAtual === numeroTotalDePaginas}
+          className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded disabled:opacity-50"
+        >
+          Próxima
+        </button>
       </div>
     </div>
   );
@@ -29,7 +99,8 @@ interface PlantCardProps {
   beneficios: string[];
   nivelCuidado: string;
   requerimentoLuminosidade: string;
-  requerimentoFluxo: string; // Adicionado
+  requerimentoFluxo: string;
+  onAddToCart: () => void; // Nova prop para a função de adicionar ao carrinho
 }
 
 function PlantCard({
@@ -40,33 +111,46 @@ function PlantCard({
   nivelCuidado,
   requerimentoLuminosidade,
   requerimentoFluxo,
+  onAddToCart,
 }: PlantCardProps) {
-  /* Objeto que irá definir a estilização baseado no nivel facil, moderado e dificil */
   const lvl = {
     Baixo: "text-accent",
     Moderado: "text-amber-500",
     Alto: "text-rose-500",
   };
+  const promocao = ["Halymenia", "Codium", "Caulerpa"];
 
   return (
-    <div className="border border-gray-200 hover:border-gray-400 rounded-lg shadow-2xl">
+    <div className="bg-gradient-to-b from-gray-200 to-gray-50 border hover:-translate-y-1 border-gray-300 rounded-lg shadow-2xl transition-all duration-700">
       {/* CONTAINER QUE ENGLOBA O CARD */}
-      <div className="flex justify-between items-center p-6">
+      <div className="flex justify-between items-center p-3">
         {/* SUBCONTAINER QUE ENGLOBA O RESTANTE DO CARD */}
-        <div className="p-2 bg-orange-500 space-y-4 w-full">
-          <h3 className="font-semibold text-lg sm:text-xl text-center">
+        <div className="space-y-4 w-full">
+          <h3 className="font-semibold text-lg sm:text-2xl lg:text-3xl text-accentDark text-center">
             {nome}
           </h3>
-
           {/* CONTAINER QUE ENGLOBA O PREÇO E A IMAGEM*/}
-          <div className="p-2 bg-gray-600 flex gap-2 justify-between">
-            {/* Container dos preços */}
-            <div className="bg-sky-500">
-              <h2 className="text-rose-500 text-4xl font-semibold">
+          <div className="flex gap-2 justify-between px-4">
+            {/* Container dos preços e botão reservar */}
+            <div className="flex flex-col justify-center items-center">
+              <h2
+                className={`${
+                  promocao.includes(nome) ? "text-accent" : "text-rose-500 "
+                } text-4xl font-semibold`}
+              >
                 R$ {preco}
               </h2>
-            </div>
 
+              {/* NOVO: Container para o botão Reservar */}
+              <div className="mt-4">
+                <button
+                  onClick={onAddToCart} // Chama a função ao clicar no botão
+                  className="flex items-center gap-4 bg-accentDark hover:bg-accent transition-all duration-700 font-semibold text-white rounded-full w-fit px-4 py-2 text-[14px] cursor-pointer"
+                >
+                  Reservar
+                </button>
+              </div>
+            </div>
             {/* imagem */}
             <img
               className="w-[100px] h-[100px] rounded-full object-cover"
@@ -74,14 +158,12 @@ function PlantCard({
               alt="Imagem ilustrativa"
             />
           </div>
-
           {/* CONTAINER DE DESCRIÇÃO */}
-          <div className="bg-sky-600">
+          <div className="border-b-1 border-gray-300 pb-3">
             <p>{descricao}</p>
           </div>
-
           {/* Container que engloba o nivel de cuidado, Luminosidade e Fluxo */}
-          <div className="bg-emerald-400 flex flex-col">
+          <div className="flex flex-col border-b-1 border-gray-300 pb-3">
             {/* Span do nivel de cuidado */}
             <span>
               Cuidado:{" "}
@@ -91,7 +173,6 @@ function PlantCard({
                 {nivelCuidado}
               </span>
             </span>
-
             {/* Span de nivel de luminosidade */}
             <span>
               Luminosidade:{" "}
@@ -103,7 +184,6 @@ function PlantCard({
                 {requerimentoLuminosidade}
               </span>
             </span>
-
             {/* Span de nivel de Fluxo */}
             <span>
               Fluxo:{" "}
@@ -116,11 +196,10 @@ function PlantCard({
               </span>
             </span>
           </div>
-
           {/* Container que engloba os beneficios que é um array */}
-          <div className="bg-rose-500 flex flex-wrap justify-start gap-x-3">
+          <div className="flex flex-wrap justify-start gap-x-3">
             {beneficios.map((i, index) => (
-              <span className="text-sky-400 text-sm underline" key={index}>
+              <span className="text-sky-600 text-sm underline" key={index}>
                 {i}
               </span>
             ))}

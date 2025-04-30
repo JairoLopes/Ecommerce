@@ -1,69 +1,77 @@
+import { useCart } from "./CartContext";
 
-
-// Define uma interface para os dados de cada item do Hero
 interface HeroItem {
   path: string;
   topTitle?: string;
   bigTitle: string;
   descTitle?: string;
   price: number;
-  isMain: boolean; // Indica se este item é o principal
+  isMain: boolean;
+  id: number; // Adicione um ID único para cada item do Hero
 }
 
 const Hero = () => {
-  // Array contendo os dados para cada item do Hero, incluindo a imagem e o conteúdo
+  const { addItem } = useCart(); // Obtém a função addItem do contexto
+
   const heroItems: HeroItem[] = [
     {
+      id: 100, // Adicione um ID único
       path: "halymenia.jpeg",
       topTitle: "Em destaque",
       bigTitle: "Halymenia",
       descTitle: "Por apenas",
-      price: 39.99,
-      isMain: true, // O primeiro item é a imagem principal
+      price: 40.0,
+      isMain: true,
     },
     {
-      path: "caluerpa.jpeg", // Você pode usar um caminho de imagem diferente aqui
-      bigTitle: "Caluerpa",
-      descTitle: "Sarting At",
-      price: 79.99,
+      id: 101, // Adicione um ID único
+      path: "caluerpa.jpeg",
+      bigTitle: "Caulerpa",
+      descTitle: "Por apenas",
+      price: 42.0,
       isMain: false,
     },
     {
-      path: "codium.jpeg", // Você pode usar um caminho de imagem diferente aqui
+      id: 102, // Adicione um ID único
+      path: "codium.jpeg",
       bigTitle: "Codium",
-      descTitle: "Sarting At",
-      price: 79.99,
+      descTitle: "Por apenas",
+      price: 50.0,
       isMain: false,
     },
-    // Você pode adicionar mais itens aqui, cada um com sua própria imagem e conteúdo
   ];
 
+  const handleAddToCart = (item: HeroItem) => {
+    addItem({ id: item.id, nome: item.bigTitle, preco: item.price });
+    // REMOVIDO: alert(`${item.bigTitle} adicionado ao carrinho!`); // Feedback visual
+  };
+
   return (
-    <div className="h-screen mx-auto pt-[5%] pb-20 px-10">
+    <div
+      id="hero"
+      className="h-screen mx-auto pt-[6%] pb-20 px-10 max-sm:mb-[45%] min-sm:mb-[55%] lg:mb-0"
+    >
       {/* Div que engloba todo o HERO */}
       <div className="grid lg:grid-cols-3 lg:grid-rows-2 gap-8">
-        {/* Mapeia o array de heroItems para renderizar cada item */}
         {heroItems.map((item, index) => {
-          // Define o estilo de background para cada item dinamicamente
           const bg_style = `bg-[linear-gradient(to_right,rgb(5,5,20,1),rgb(5,5,20,0.2)),url('/img/Banner_Hero/${item.path}')] bg-no-repeat bg-center bg-cover`;
 
-          /* SEGUNDO RETURN DENTRO DO RETURN PRINCIPAL, ESSE APENAS RENDERIZA OS PRODUTOS */
           return (
             <div
-              key={index} // Adiciona uma key única para cada item renderizado em um loop
+              key={index}
               className={`${
                 item.isMain
-                  ? "lg:col-span-2 lg:row-start-1 lg:row-end-[-1]" // Estilos específicos para a imagem principal
+                  ? "lg:col-span-2 lg:row-start-1 lg:row-end-[-1]"
                   : ""
               } ${bg_style} shadow-2xl rounded`}
             >
-              {/* Renderiza o componente TitleAndPrice para cada item */}
               <TitleAndPrice
-                main={item.isMain} // Passa a propriedade "isMain" para o componente TitleAndPrice
+                main={item.isMain}
                 topTitle={item.topTitle}
                 bigTitle={item.bigTitle}
                 descTitle={item.descTitle}
                 price={item.price}
+                onAddToCart={() => handleAddToCart(item)} // Passa a função para o TitleAndPrice
               />
             </div>
           );
@@ -73,13 +81,13 @@ const Hero = () => {
   );
 };
 
-/* COMPONENTE QUE INSERE TITULO E PREÇO NO CONTAINER DAS IMAGENS */
 interface TitleAndPriceProps {
   topTitle?: string;
   bigTitle: string;
   descTitle?: string;
   price: number;
   main: boolean;
+  onAddToCart: () => void; // Nova prop para a função de adicionar ao carrinho
 }
 
 function TitleAndPrice({
@@ -88,6 +96,7 @@ function TitleAndPrice({
   descTitle,
   price,
   main = false,
+  onAddToCart,
 }: TitleAndPriceProps) {
   return (
     <div className="flex flex-col justify-center py-12 lg:py-8 pl-0 max-w-[60%] h-full ml-8 sm:ml-4 sm:space-y-3]">
@@ -129,9 +138,14 @@ function TitleAndPrice({
         R${Number.parseFloat(price.toFixed(2)).toLocaleString("pt-BR")}
       </div>
 
-      <button className="flex items-center gap-4 bg-accentDark hover:bg-accent transition-all duration-700 font-semibold text-white rounded-full w-fit px-4 py-2 text-[14px] sm:px-6 sm:py-3 cursor-pointer">
-        Shop Now
+      <button
+        onClick={onAddToCart} // Chama a função ao clicar no botão
+        className="flex items-center gap-4 bg-accentDark hover:bg-accent transition-all duration-700 font-semibold text-white rounded-full w-fit px-4 py-2 text-[14px] sm:px-6 sm:py-3 cursor-pointer"
+      >
+        Reservar
       </button>
+
+      <span id="plants"></span>
     </div>
   );
 }

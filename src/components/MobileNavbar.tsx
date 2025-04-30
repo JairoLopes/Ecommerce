@@ -1,34 +1,52 @@
-import { FaSearch, FaRegUser } from "react-icons/fa";
-import { RiMenuLine } from "react-icons/ri";
-import CartCount from "./CartCount";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { FaSearch } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
+import CartCount from "./CartCount";
 
-const MobileNavbar = () => {
+interface MobileNavbarProps {
+  onToggleMenu: () => void;
+  onOpenSearch: () => void; // Prop para abrir a pesquisa mobile
+  onOpenCart: () => void; // Prop para abrir o carrinho mobile
+}
+
+const MobileNavbar = ({
+  onToggleMenu,
+  onOpenSearch,
+  onOpenCart,
+}: MobileNavbarProps) => {
   return (
-    <div className="sticky top-0 bg-white z-10">
-      {/* Sub-Container que engloba todo o navbar mobile */}
-      <div className="p-6 lg:hidden">
-        {/* SubSub-container que engloba todo o navbar mobile */}
-        <div className="flex justify-between items-center">
-          {/* Container que engloba menu hamburguer com icone de pesquisa */}
-          <div className="flex items-center gap-6">
-            <RiMenuLine size={30} />
-            <FaSearch size={20} />
-          </div>
+    <div className="sticky top-0 bg-white z-10 lg:hidden p-4 flex justify-between items-center">
+      {/* Ícone do Menu */}
+      <button
+        onClick={onToggleMenu}
+        className="text-gray-700 hover:text-gray-900"
+      >
+        <GiHamburgerMenu size={24} />
+      </button>
 
-          <h1 className="text-3xl font-bold">Logo</h1>
+      {/* Logo (Centralizado) */}
+      <h1 className="text-2xl font-garamond text-accentDark tracking-widest font-extrabold">
+        Nuphar
+      </h1>
 
-          {/* Container onde engloba o icone de usuário, e tbm engloba o container do icone de carrinho */}
-          <div className="flex gap-4 text-[30px]">
-            <FaRegUser />
+      {/* Ícones da Direita */}
+      <div className="flex gap-4">
+        {/* Ícone de Pesquisa */}
+        <button
+          onClick={onOpenSearch}
+          className="text-gray-700 hover:text-gray-900"
+        >
+          <FaSearch size={20} />
+        </button>
 
-            {/* Container onde engloba apenas o icone de carrinho junto com o componente que conta itens do carrinho */}
-            <div className="relative cursor-pointer">
-              <IoCartOutline size={35} />
-              <CartCount size="w-[20px] h-[20px]" />
-            </div>
-          </div>
-        </div>
+        {/* Ícone do Carrinho */}
+        <button
+          onClick={onOpenCart}
+          className="relative text-gray-700 hover:text-gray-900"
+        >
+          <IoCartOutline size={22} />
+          <CartCount size="w-[18px] h-[18px]" />
+        </button>
       </div>
     </div>
   );

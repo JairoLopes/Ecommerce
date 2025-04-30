@@ -1,7 +1,16 @@
 @import "tailwindcss";
 
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Oswald:wght@200..700&family=Space+Grotesk:wght@300..700&display=swap");
+
 @theme {
   --color-accent: #179957;
   --color-accentDark: #184d47;
+  --font-garamond: "EB Garamond", serif;
   --breakpoint-ssm: 399px;
+  --breakpoint-mobHero: 550px;
+  --breakpoint-tblHero: 800px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
