@@ -205,12 +205,15 @@ const AboutUs = () => {
             transition={{ duration: 1, delay: 0.25 }}
             className="text-gray-500 leading-relaxed text-center mb-6"
           >
-            A qualidade e o profissionalismo da [Nome da Sua Empresa] são
-            impulsionados por uma equipe de profissionais graduados e altamente
-            especializados no campo da biologia marinha e aquicultura. Nosso
-            compromisso é fornecer não apenas produtos de excelência, mas também
-            o conhecimento necessário para que você tenha sucesso na manutenção
-            do seu aquário marinho.
+            A qualidade e o profissionalismo da{" "}
+            <strong className="text-accentDark font-bold tracking-widest">
+              Nuphar
+            </strong>{" "}
+            são impulsionados por uma equipe de profissionais graduados e
+            altamente especializados no campo da biologia marinha e aquicultura.
+            Nosso compromisso é fornecer não apenas produtos de excelência, mas
+            também o conhecimento necessário para que você tenha sucesso na
+            manutenção do seu aquário marinho.
           </motion.p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -328,11 +331,18 @@ const AboutUs = () => {
         </div>
 
         {/* Chamada para Ação (Opcional) */}
-        {/* <div className="text-center mt-8">
-          <button className="bg-accentDark hover:bg-accent transition-all duration-700 font-semibold text-white rounded-full w-fit px-8 py-3 text-lg cursor-pointer">
-            Explore Nossas Espécies
-          </button>
-        </div> */}
+        <motion.div
+          initial={slideUpFadeIn.initial}
+          whileInView={slideUpFadeIn.animate}
+          transition={{ duration: 1, delay: 0.25 }}
+          className="text-center mt-8"
+        >
+          <a href="#plants">
+            <button className="bg-accentDark hover:bg-accent transition-all duration-700 font-semibold text-white rounded-full w-fit px-8 py-3 text-lg cursor-pointer">
+              Explore Nossas Espécies
+            </button>
+          </a>
+        </motion.div>
       </div>
       <span id="tutorial"></span>
     </div>
