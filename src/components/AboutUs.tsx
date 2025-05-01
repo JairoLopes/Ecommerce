@@ -41,9 +41,12 @@ const AboutUs = () => {
             complexidade da vida subaquática, percebemos a crescente busca por
             soluções que não apenas embelezassem os aquários, mas também
             promovessem um ambiente saudável e equilibrado para os seus queridos
-            peixes de estimação. Foi assim que nasceu a [Nome da Sua Empresa],
-            com o objetivo de oferecer uma seleção profissional e ecologicamente
-            consciente de espécies marinhas para aquários.
+            peixes de estimação. Foi assim que nasceu a{" "}
+            <strong className="text-accentDark font-bold tracking-widest">
+              Nuphar
+            </strong>
+            , com o objetivo de oferecer uma seleção profissional e
+            ecologicamente consciente de espécies marinhas para aquários.
           </motion.p>
         </div>
 
