@@ -1,17 +1,40 @@
+import { motion } from "framer-motion";
+import {
+  slideUpFadeIn,
+  slideRight,
+  slideLeft,
+  growIn,
+} from "../animations/animations";
+
 const AboutUs = () => {
   return (
     <div className="py-16 bg-gray-100">
       <div className="max-w-6xl mx-auto px-5 md:px-10">
-        <h2 className="text-accentDark text-4xl text-center font-bold mb-12">
+        <motion.h2
+          initial={slideUpFadeIn.initial}
+          whileInView={slideUpFadeIn.animate}
+          transition={{ duration: 1, delay: 0.25 }}
+          className="text-accentDark text-4xl text-center font-bold mb-12"
+        >
           Sobre Nós
-        </h2>
+        </motion.h2>
 
         {/* Nossa História */}
         <div className="mb-10">
-          <h3 className="text-gray-600 text-2xl font-semibold mb-4">
+          <motion.h3
+            initial={slideRight.initial}
+            whileInView={slideRight.animate}
+            transition={{ duration: 2.5, delay: 0.25 }}
+            className="text-gray-600 text-2xl font-semibold mb-4"
+          >
             Uma Jornada Dedicada à Vida Marinha em Seu Aquário
-          </h3>
-          <p className="text-gray-500 leading-relaxed">
+          </motion.h3>
+          <motion.p
+            initial={slideLeft.initial}
+            whileInView={slideLeft.animate}
+            transition={{ duration: 1, delay: 0.25 }}
+            className="text-gray-500 leading-relaxed"
+          >
             Nossa jornada começou com uma paixão profunda pelo fascinante mundo
             dos aquários marinhos e o papel crucial que as plantas e algas
             desempenham nesse ecossistema em miniatura. Observando a beleza e a
@@ -21,15 +44,25 @@ const AboutUs = () => {
             peixes de estimação. Foi assim que nasceu a [Nome da Sua Empresa],
             com o objetivo de oferecer uma seleção profissional e ecologicamente
             consciente de espécies marinhas para aquários.
-          </p>
+          </motion.p>
         </div>
 
         {/* Nossa Missão e Visão */}
         <div className="mb-10">
-          <h3 className="text-gray-600 text-2xl font-semibold mb-4">
+          <motion.h3
+            initial={slideLeft.initial}
+            whileInView={slideLeft.animate}
+            transition={{ duration: 1, delay: 0.25 }}
+            className="text-gray-600 text-2xl font-semibold mb-4"
+          >
             Missão e Visão: Beleza, Saúde e Sustentabilidade Subaquática
-          </h3>
-          <p className="text-gray-500 leading-relaxed">
+          </motion.h3>
+          <motion.p
+            initial={slideRight.initial}
+            whileInView={slideRight.animate}
+            transition={{ duration: 1, delay: 0.25 }}
+            className="text-gray-500 leading-relaxed"
+          >
             **Nossa Missão:** É proporcionar aos entusiastas de aquários
             marinhos acesso a uma variedade de plantas e algas de alta
             qualidade, cultivadas de forma sustentável, que não apenas realçam a
@@ -45,23 +78,41 @@ const AboutUs = () => {
             em verdadeiros ecossistemas vibrantes e saudáveis. Queremos
             empoderar nossos clientes, fornecendo o conhecimento e os recursos
             necessários para criar e manter ambientes aquáticos excepcionais.
-          </p>
+          </motion.p>
         </div>
 
         {/* A Importância das Plantas e Algas Marinhas */}
         <div className="mb-10">
-          <h3 className="text-gray-600 text-2xl font-semibold mb-4 text-center">
+          <motion.h3
+            initial={slideUpFadeIn.initial}
+            whileInView={slideUpFadeIn.animate}
+            transition={{ duration: 1, delay: 0.25 }}
+            className="text-gray-600 text-2xl font-semibold mb-4 text-center"
+          >
             A Essencial Função das Plantas e Algas em Aquários Marinhos
-          </h3>
-          <p className="text-gray-500 leading-relaxed text-center">
+          </motion.h3>
+          <motion.p
+            initial={slideUpFadeIn.initial}
+            whileInView={slideUpFadeIn.animate}
+            transition={{ duration: 1, delay: 0.25 }}
+            className="text-gray-500 leading-relaxed text-center"
+          >
             Para quem está começando ou para os experientes, é vital entender o
             papel multifacetado que as plantas e algas marinhas desempenham em
             um aquário. Elas são muito mais do que meros adornos; são
             componentes essenciais para um ambiente aquático saudável e
             equilibrado.
-          </p>
+          </motion.p>
+
+          {/* Container dos blocos explicativos */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-            <div className="bg-white rounded-lg shadow-md p-6">
+            {/* Oxigenação Vital */}
+            <motion.div
+              initial={growIn.initial}
+              whileInView={growIn.animate}
+              transition={{ duration: 1, delay: 0.25 }}
+              className="bg-white rounded-lg shadow-md p-6"
+            >
               <h4 className="text-accent font-semibold mb-2">
                 Oxigenação Vital
               </h4>
@@ -71,8 +122,15 @@ const AboutUs = () => {
                 organismos aquáticos. Uma boa oxigenação previne o estresse e
                 doenças, promovendo uma vida aquática vibrante.
               </p>
-            </div>
-            <div className="bg-white rounded-lg shadow-md p-6">
+            </motion.div>
+
+            {/* Nutrição e cadeia alimentar */}
+            <motion.div
+              initial={growIn.initial}
+              whileInView={growIn.animate}
+              transition={{ duration: 1, delay: 0.25 }}
+              className="bg-white rounded-lg shadow-md p-6"
+            >
               <h4 className="text-accent font-semibold mb-2">
                 Nutrição e Cadeia Alimentar
               </h4>
@@ -82,8 +140,15 @@ const AboutUs = () => {
                 pelas plantas em decomposição contribui para a cadeia alimentar
                 do aquário, sustentando micro-organismos benéficos.
               </p>
-            </div>
-            <div className="bg-white rounded-lg shadow-md p-6">
+            </motion.div>
+
+            {/* Filtragem Natural */}
+            <motion.div
+              initial={growIn.initial}
+              whileInView={growIn.animate}
+              transition={{ duration: 1, delay: 0.25 }}
+              className="bg-white rounded-lg shadow-md p-6"
+            >
               <h4 className="text-accent font-semibold mb-2">
                 Filtragem Natural
               </h4>
@@ -94,8 +159,15 @@ const AboutUs = () => {
                 reduzem a necessidade de trocas frequentes de água, contribuindo
                 para um ambiente mais estável.
               </p>
-            </div>
-            <div className="bg-white rounded-lg shadow-md p-6">
+            </motion.div>
+
+            {/* Estética e Refúgio */}
+            <motion.div
+              initial={growIn.initial}
+              whileInView={growIn.animate}
+              transition={{ duration: 1, delay: 0.25 }}
+              className="bg-white rounded-lg shadow-md p-6"
+            >
               <h4 className="text-accent font-semibold mb-2">
                 Refúgio e Redução de Estresse
               </h4>
@@ -106,29 +178,46 @@ const AboutUs = () => {
                 reduzir o estresse dos animais, criando um ambiente mais natural
                 e acolhedor.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
 
         {/* Nossa Equipe de Especialistas */}
         <div className="mb-10">
-          <h3 className="text-gray-600 text-2xl font-semibold mb-4 text-center">
+          <motion.h3
+            initial={slideUpFadeIn.initial}
+            whileInView={slideUpFadeIn.animate}
+            transition={{ duration: 1, delay: 0.25 }}
+            className="text-gray-600 text-2xl font-semibold mb-4 text-center"
+          >
             Por Trás da{" "}
             <strong className="animate-pulse text-accent font-garamond tracking-widest font-bold">
               Nuphar
             </strong>
             : Conhecimento e Dedicação Profissional
-          </h3>
-          <p className="text-gray-500 leading-relaxed text-center mb-6">
+          </motion.h3>
+          <motion.p
+            initial={growIn.initial}
+            whileInView={growIn.animate}
+            transition={{ duration: 1, delay: 0.25 }}
+            className="text-gray-500 leading-relaxed text-center mb-6"
+          >
             A qualidade e o profissionalismo da [Nome da Sua Empresa] são
             impulsionados por uma equipe de profissionais graduados e altamente
             especializados no campo da biologia marinha e aquicultura. Nosso
             compromisso é fornecer não apenas produtos de excelência, mas também
             o conhecimento necessário para que você tenha sucesso na manutenção
             do seu aquário marinho.
-          </p>
+          </motion.p>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-white rounded-lg shadow-md p-6 text-center">
+            {/* Bloco do card de especialista 1 */}
+            <motion.div
+              initial={growIn.initial}
+              whileInView={growIn.animate}
+              transition={{ duration: 1, delay: 0.25 }}
+              className="bg-white rounded-lg shadow-md p-6 text-center"
+            >
               <h4 className="text-accent font-semibold mb-2">
                 Biólogos Marinhos
               </h4>
@@ -139,8 +228,15 @@ const AboutUs = () => {
                 garante a correta identificação, cultivo e manejo das plantas e
                 algas que oferecemos.
               </p>
-            </div>
-            <div className="bg-white rounded-lg shadow-md p-6 text-center">
+            </motion.div>
+
+            {/* Bloco do card de especialista 2 */}
+            <motion.div
+              initial={growIn.initial}
+              whileInView={growIn.animate}
+              transition={{ duration: 1, delay: 0.25 }}
+              className="bg-white rounded-lg shadow-md p-6 text-center"
+            >
               <h4 className="text-accent font-semibold mb-2">
                 Especialistas em Aquicultura
               </h4>
@@ -151,8 +247,15 @@ const AboutUs = () => {
                 controlados. Eles asseguram que nossas plantas e algas cresçam
                 saudáveis e vigorosas, prontas para prosperar em seu aquário.
               </p>
-            </div>
-            <div className="bg-white rounded-lg shadow-md p-6 text-center">
+            </motion.div>
+
+            {/* Bloco do card de especialista 3 */}
+            <motion.div
+              initial={growIn.initial}
+              whileInView={growIn.animate}
+              transition={{ duration: 1, delay: 0.25 }}
+              className="bg-white rounded-lg shadow-md p-6 text-center"
+            >
               <h4 className="text-accent font-semibold mb-2">
                 Profissionais de Suporte ao Cliente
               </h4>
@@ -163,16 +266,27 @@ const AboutUs = () => {
                 manutenção e solução de problemas. Estamos aqui para apoiar você
                 em cada etapa da sua jornada.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
 
         {/* Formação Necessária (Implícito na descrição da equipe) */}
         <div className="mb-10">
-          <h3 className="text-gray-600 text-2xl font-semibold mb-4 text-center">
+          <motion.h3
+            initial={slideUpFadeIn.initial}
+            whileInView={slideUpFadeIn.animate}
+            transition={{ duration: 1, delay: 0.25 }}
+            className="text-gray-600 text-2xl font-semibold mb-4 text-center"
+          >
             Construindo um Negócio de Qualidade neste Nicho
-          </h3>
-          <p className="text-gray-500 leading-relaxed text-center">
+          </motion.h3>
+
+          <motion.p
+            initial={slideUpFadeIn.initial}
+            whileInView={slideUpFadeIn.animate}
+            transition={{ duration: 1, delay: 0.25 }}
+            className="text-gray-500 leading-relaxed text-center"
+          >
             Para construir um negócio de qualidade e credibilidade no nicho de
             plantas e algas marinhas para aquários, é fundamental contar com
             profissionais com formação robusta em áreas como Biologia Marinha,
@@ -182,21 +296,32 @@ const AboutUs = () => {
             manejo é essencial para garantir a saúde e a qualidade dos produtos
             oferecidos, além de fornecer um suporte técnico confiável aos
             clientes.
-          </p>
+          </motion.p>
         </div>
 
         {/* Nosso Compromisso Ecológico */}
         <div className="mb-10">
-          <h3 className="text-gray-600 text-2xl font-semibold mb-4 text-center">
+          <motion.h3
+            initial={slideUpFadeIn.initial}
+            whileInView={slideUpFadeIn.animate}
+            transition={{ duration: 1, delay: 0.25 }}
+            className="text-gray-600 text-2xl font-semibold mb-4 text-center"
+          >
             Compromisso com a Ecologia
-          </h3>
-          <p className="text-gray-500 leading-relaxed text-center">
+          </motion.h3>
+
+          <motion.p
+            initial={slideUpFadeIn.initial}
+            whileInView={slideUpFadeIn.animate}
+            transition={{ duration: 1, delay: 0.25 }}
+            className="text-gray-500 leading-relaxed text-center"
+          >
             Acreditamos firmemente na importância da sustentabilidade. Nossas
             práticas de cultivo são pensadas para minimizar o impacto ambiental,
             e buscamos oferecer espécies que, em muitos casos, são cultivadas em
             vez de coletadas de ecossistemas naturais, contribuindo para a
             preservação da vida marinha.
-          </p>
+          </motion.p>
         </div>
 
         {/* Chamada para Ação (Opcional) */}
@@ -206,6 +331,7 @@ const AboutUs = () => {
           </button>
         </div> */}
       </div>
+      <span id="tutorial"></span>
     </div>
   );
 };

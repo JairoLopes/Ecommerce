@@ -29,36 +29,55 @@ const MenuMobile = () => {
 
       {/* Lista de itens do menu */}
       <ul className="flex flex-col gap-8 text-center">
-        <li
-          className="text-lg font-bold text-gray-900 cursor-pointer"
-          onClick={handleMenuItemClick}
-        >
-          Destaques
-        </li>
-        <li
-          className="text-lg font-bold text-gray-900 cursor-pointer"
-          onClick={handleMenuItemClick}
-        >
-          Espécies
-        </li>
-        <li
-          className="text-lg font-bold text-gray-900 cursor-pointer"
-          onClick={handleMenuItemClick}
-        >
-          Sobre nós
-        </li>
-        <li
-          className="text-lg font-bold text-gray-900 cursor-pointer"
-          onClick={handleMenuItemClick}
-        >
-          Tutorial
-        </li>
-        <li
-          className="text-lg font-bold text-gray-900 cursor-pointer"
-          onClick={handleMenuItemClick}
-        >
-          Contato
-        </li>
+        {/* HERO */}
+        <a href="#hero">
+          <li
+            className="text-lg font-bold text-gray-900 cursor-pointer"
+            onClick={handleMenuItemClick}
+          >
+            Destaques
+          </li>
+        </a>
+
+        {/* PLANTS */}
+        <a href="#plants">
+          <li
+            className="text-lg font-bold text-gray-900 cursor-pointer"
+            onClick={handleMenuItemClick}
+          >
+            Espécies
+          </li>
+        </a>
+
+        {/* ABOUT */}
+        <a href="#about">
+          <li
+            className="text-lg font-bold text-gray-900 cursor-pointer"
+            onClick={handleMenuItemClick}
+          >
+            Sobre nós
+          </li>
+        </a>
+
+        {/* TUTORIAL */}
+        <a href="#tutorial">
+          <li
+            className="text-lg font-bold text-gray-900 cursor-pointer"
+            onClick={handleMenuItemClick}
+          >
+            Tutorial
+          </li>
+        </a>
+
+        {/* CONTACT */}
+        <a href="#contact">
+          <li
+            className="text-lg font-bold text-gray-900 cursor-pointer"
+            onClick={handleMenuItemClick}
+          >
+            Contato
+          </li>
+        </a>
       </ul>
     </nav>
   );

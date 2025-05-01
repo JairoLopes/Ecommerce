@@ -5,25 +5,43 @@ const MenuBar = () => {
       className="hidden lg:flex bg-gray-100 shadow-lg container mx-auto justify-center items-center py-3 rounded-lg"
     >
       <nav className="space-x-4 md:text-lg font-semibold px-3">
+        {/* HERO */}
         <a
           href="#hero"
           className="text-gray-700 hover:text-accent transition-all"
         >
           Destaques
         </a>
+
+        {/* PLANTS */}
         <a
           href="#plants"
           className="text-gray-700 hover:text-accent transition-all"
         >
           Espécies
         </a>
-        <a href="#" className="text-gray-700 hover:text-accent transition-all">
+
+        {/* ABOUT */}
+        <a
+          href="#about"
+          className="text-gray-700 hover:text-accent transition-all"
+        >
           Sobre nós
         </a>
-        <a href="#" className="text-gray-700 hover:text-accent transition-all">
+
+        {/* TUTORIAL */}
+        <a
+          href="#tutorial"
+          className="text-gray-700 hover:text-accent transition-all"
+        >
           Tutorial
         </a>
-        <a href="#" className="text-gray-700 hover:text-accent transition-all">
+
+        {/* CONTACT */}
+        <a
+          href="#contact"
+          className="text-gray-700 hover:text-accent transition-all"
+        >
           Contato
         </a>
       </nav>

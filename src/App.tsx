@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import NavBar from "./components/NavBar";
 import MobileNavbar from "./components/MobileNavbar";
-import Hero from "./components/Hero";
-import Plants from "./components/Plants";
 import MenuMobile from "./components/MenuMobile";
 import CartSidebar from "./components/CartSidebar";
+import Hero from "./components/Hero";
+import Plants from "./components/Plants";
 import { IoCloseSharp } from "react-icons/io5";
 import AboutUs from "./components/AboutUs";
 import Tutorial from "./components/Tutorial";

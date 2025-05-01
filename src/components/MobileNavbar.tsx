@@ -25,9 +25,11 @@ const MobileNavbar = ({
       </button>
 
       {/* Logo (Centralizado) */}
-      <h1 className="text-2xl font-garamond text-accentDark tracking-widest font-extrabold">
-        Nuphar
-      </h1>
+      <a href="#hero">
+        <h1 className="text-3xl font-garamond text-accentDark tracking-widest font-extrabold">
+          Nuphar
+        </h1>
+      </a>
 
       {/* Ícones da Direita */}
       <div className="flex gap-4">

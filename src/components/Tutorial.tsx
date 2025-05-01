@@ -1,21 +1,39 @@
+import { motion } from "framer-motion";
+import { slideUpFadeIn, growIn } from "../animations/animations";
+
 const Tutorial = () => {
   return (
-    <div className="py-16 bg-gray-50">
+    <div className="py-22 bg-gray-50">
       <div className="max-w-6xl mx-auto px-5 md:px-10">
-        <h2 className="text-accentDark text-4xl text-center font-bold mb-12">
+        <motion.h2
+          initial={slideUpFadeIn.initial}
+          whileInView={slideUpFadeIn.animate}
+          transition={{ duration: 1, delay: 0.25 }}
+          className="text-accentDark text-4xl text-center font-bold mb-12"
+        >
           Tutorial
-        </h2>
+        </motion.h2>
 
-        <p className="text-gray-600 leading-relaxed mb-8 text-center">
+        <motion.p
+          initial={slideUpFadeIn.initial}
+          whileInView={slideUpFadeIn.animate}
+          transition={{ duration: 1, delay: 0.25 }}
+          className="text-gray-600 leading-relaxed mb-8 text-center"
+        >
           O aquarismo é uma prática fascinante que envolve a criação e
           manutenção de ecossistemas aquáticos em casa. Para ajudar você a
           entender melhor as características das algas e plantas marinhas, aqui
           estão algumas definições importantes:
-        </p>
+        </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Nível de Cuidado */}
-          <div className="bg-white rounded-lg shadow-md p-6 text-center">
+          <motion.div
+            initial={growIn.initial}
+            whileInView={growIn.animate}
+            transition={{ duration: 1, delay: 0.25 }}
+            className="bg-white rounded-lg shadow-md p-6 text-center"
+          >
             <h3 className="text-accentDark text-xl font-semibold mb-4">
               Nível de Cuidado
             </h3>
@@ -36,10 +54,15 @@ const Tutorial = () => {
             <p className="text-gray-500 leading-relaxed mt-4 text-sm">
               Escolha de acordo com sua experiência e tempo dedicado ao aquário.
             </p>
-          </div>
+          </motion.div>
 
           {/* Requerimento de Luminosidade */}
-          <div className="bg-white rounded-lg shadow-md p-6 text-center">
+          <motion.div
+            initial={growIn.initial}
+            whileInView={growIn.animate}
+            transition={{ duration: 1, delay: 0.25 }}
+            className="bg-white rounded-lg shadow-md p-6 text-center"
+          >
             <h3 className="text-sky-700 text-xl font-semibold mb-4">
               Requerimento de Luminosidade
             </h3>
@@ -61,10 +84,15 @@ const Tutorial = () => {
             <p className="text-gray-500 leading-relaxed mt-4 text-sm">
               A iluminação adequada é crucial para o crescimento e vitalidade.
             </p>
-          </div>
+          </motion.div>
 
           {/* Requerimento de Fluxo */}
-          <div className="bg-white rounded-lg shadow-md p-6 text-center">
+          <motion.div
+            initial={growIn.initial}
+            whileInView={growIn.animate}
+            transition={{ duration: 1, delay: 0.25 }}
+            className="bg-white rounded-lg shadow-md p-6 text-center"
+          >
             <h3 className="text-teal-700 text-xl font-semibold mb-4">
               Requerimento de Fluxo
             </h3>
@@ -87,10 +115,15 @@ const Tutorial = () => {
               O fluxo adequado garante a saúde e previne o acúmulo de algas
               indesejadas.
             </p>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="mt-12 text-center">
+        <motion.div
+          initial={growIn.initial}
+          whileInView={growIn.animate}
+          transition={{ duration: 1, delay: 0.25 }}
+          className="mt-12 text-center"
+        >
           <p className="text-gray-600 leading-relaxed">
             Entender essas características te ajudará a escolher as espécies
             mais adequadas para o seu aquário e a proporcionar um ambiente
@@ -98,8 +131,9 @@ const Tutorial = () => {
             beleza e os benefícios que as plantas e algas marinhas podem trazer
             para o seu pedacinho do oceano!
           </p>
-        </div>
+        </motion.div>
       </div>
+      <span id="contact"></span>
     </div>
   );
 };

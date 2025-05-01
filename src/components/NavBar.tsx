@@ -3,6 +3,8 @@ import { icon__wrapper } from "../style";
 import CartCount from "./CartCount";
 import { IoCartOutline } from "react-icons/io5";
 import MenuBar from "./MenuBar";
+import { motion } from "framer-motion";
+import { slideRight } from "../animations/animations";
 
 interface NavBarProps {
   onSearch: (term: string) => void;
@@ -23,9 +25,16 @@ const NavBar = ({ onSearch, onOpenCart }: NavBarProps) => {
         {/* Subcontainer que engloba todo conteudo da NAVBAR */}
         <div className="flex justify-between items-center p-6">
           {/* LOGO */}
-          <h1 className="font-garamond font-bold text-accentDark tracking-widest text-3xl md:text-4xl ">
-            Nuphar
-          </h1>
+          <motion.a
+            href="#hero"
+            initial={slideRight.initial}
+            whileInView={slideRight.animate}
+            transition={{ duration: 1.5, delay: 0.25 }}
+          >
+            <h1 className="font-garamond font-bold text-accentDark tracking-widest text-3xl md:text-4xl ">
+              Nuphar
+            </h1>
+          </motion.a>
 
           {/* Div que engloba a barra de pesquisa(INPUT)*/}
           <div className="relative w-full max-w-[500px]">

@@ -1,23 +1,41 @@
 import { FaEnvelope } from "react-icons/fa";
+import { growIn, slideUpFadeIn } from "../animations/animations";
+import { motion } from "framer-motion";
 
 const ContactUs = () => {
   return (
     <div className="py-16 bg-gray-50">
       <div className="max-w-4xl mx-auto px-6 md:px-8">
-        <h2 className="text-accentDark text-3xl md:text-4xl text-center font-bold mb-8">
+        <motion.h2
+          initial={slideUpFadeIn.initial}
+          whileInView={slideUpFadeIn.animate}
+          transition={{ duration: 1, delay: 0.25 }}
+          className="text-accentDark text-3xl md:text-4xl text-center font-bold mb-8"
+        >
           Entre em Contato
-        </h2>
+        </motion.h2>
 
-        <p className="text-gray-600 text-sm md:text-lg text-center mb-6">
+        <motion.p
+          initial={slideUpFadeIn.initial}
+          whileInView={slideUpFadeIn.animate}
+          transition={{ duration: 1, delay: 0.25 }}
+          className="text-gray-600 text-sm md:text-lg text-center mb-6"
+        >
           A{" "}
           <strong className="text-accent tracking-widest font-garamond font-bold">
             Nuphar
           </strong>{" "}
           está aqui para ajudar! Se você tiver alguma dúvida ou precisar de
           assistência, não hesite em entrar em contato conosco.
-        </p>
+        </motion.p>
 
-        <div className="bg-white rounded-lg shadow-md p-6 md:p-8">
+        {/* Container que engloba todo o formulario e informações */}
+        <motion.div
+          initial={growIn.initial}
+          whileInView={growIn.animate}
+          transition={{ duration: 1, delay: 0.25 }}
+          className="bg-white rounded-lg shadow-md p-6 md:p-8"
+        >
           <div className="md:grid md:grid-cols-2 md:gap-8">
             {/* Informações de Contato (Apenas Email) */}
             <div className="mb-6 md:mb-0">
@@ -113,7 +131,7 @@ const ContactUs = () => {
               </form>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

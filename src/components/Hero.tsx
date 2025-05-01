@@ -1,4 +1,7 @@
 import { useCart } from "./CartContext";
+import { useState } from "react";
+import { slideUpFadeIn } from "../animations/animations";
+import { motion } from "framer-motion";
 
 interface HeroItem {
   path: string;
@@ -60,7 +63,10 @@ const Hero = () => {
           const bg_style = `bg-[linear-gradient(to_right,rgb(5,5,20,1),rgb(5,5,20,0.2)),url('/img/Banner_Hero/${item.path}')] bg-no-repeat bg-center bg-cover`;
 
           return (
-            <div
+            <motion.div
+              initial={slideUpFadeIn.initial}
+              whileInView={slideUpFadeIn.animate}
+              transition={{ duration: 1, delay: 0.25 }}
               key={index}
               className={`${
                 item.isMain
@@ -76,10 +82,11 @@ const Hero = () => {
                 price={item.price}
                 onAddToCart={() => handleAddToCart(item)} // Passa a função para o TitleAndPrice
               />
-            </div>
+            </motion.div>
           );
         })}
       </div>
+      <span id="plants"></span>
     </div>
   );
 };
@@ -101,8 +108,18 @@ function TitleAndPrice({
   main = false,
   onAddToCart,
 }: TitleAndPriceProps) {
+  const [showAddedMessage, setShowAddedMessage] = useState(false);
+
+  const handleAddToCartClick = () => {
+    onAddToCart();
+    setShowAddedMessage(true);
+    setTimeout(() => {
+      setShowAddedMessage(false);
+    }, 1000);
+  };
+
   return (
-    <div className="flex flex-col justify-center py-12 lg:py-8 pl-0 max-w-[60%] h-full ml-8 sm:ml-4 sm:space-y-3]">
+    <div className="relative flex flex-col justify-center py-12 lg:py-8 pl-0 max-w-[60%] h-full ml-8 sm:ml-4 sm:space-y-3]">
       {/* TÍTULO SUPERIOR */}
       <p
         className={`${
@@ -141,14 +158,19 @@ function TitleAndPrice({
         R${Number.parseFloat(price.toFixed(2)).toLocaleString("pt-BR")}
       </div>
 
-      <button
-        onClick={onAddToCart} // Chama a função ao clicar no botão
-        className="flex items-center gap-4 bg-accentDark hover:bg-accent transition-all duration-700 font-semibold text-white rounded-full w-fit px-4 py-2 text-[14px] sm:px-6 sm:py-3 cursor-pointer"
-      >
-        Reservar
-      </button>
-
-      <span id="plants"></span>
+      <div className="relative">
+        <button
+          onClick={handleAddToCartClick} // Chama a função ao clicar no botão
+          className="flex items-center gap-4 bg-accentDark hover:bg-accent active:scale-75 transition-all duration-700 font-semibold text-white rounded-full w-fit px-4 py-2 text-[14px] sm:px-6 sm:py-3 cursor-pointer"
+        >
+          Reservar
+        </button>
+        {showAddedMessage && (
+          <div className="absolute bottom-[-40px] left-0 bg-gray-300 text-accentDark text-sm rounded-md py-2 px-3 animate-fade-in-out">
+            Adicionado!
+          </div>
+        )}
+      </div>
     </div>
   );
 }
