@@ -190,4 +190,48 @@ export const plantasMarinhasData = [
     requerimentoLuminosidade: "Alto",
     requerimentoFluxo: "Moderado",
   },
+  {
+    id: 19,
+    nome: "Parvispora",
+    preco: 45.0,
+    descricao:
+      "Macroalga vermelha, apreciada por sua beleza e capacidade de absorver nutrientes.",
+    beneficios: ["Absorção de Nutrientes", "Ornamentação"],
+    nivelCuidado: "Moderado",
+    requerimentoLuminosidade: "Alto",
+    requerimentoFluxo: "Moderado",
+  },
+  {
+    id: 20,
+    nome: "Nori",
+    preco: 38.0,
+    descricao:
+      "Alga marrom utilizada como alimento para peixes herbívoros e invertebrados.",
+    beneficios: ["Alimento Natural", "Fonte de Vitaminas"],
+    nivelCuidado: "Baixo",
+    requerimentoLuminosidade: "Moderado",
+    requerimentoFluxo: "Moderado",
+  },
+  {
+    id: 21,
+    nome: "Kelp",
+    preco: 52.0,
+    descricao:
+      "Alga marrom de rápido crescimento que oferece abrigo e auxilia na qualidade da água.",
+    beneficios: ["Abrigo para Microfauna", "Melhora da Qualidade da Água"],
+    nivelCuidado: "Moderado",
+    requerimentoLuminosidade: "Alto",
+    requerimentoFluxo: "Moderado",
+  },
+  {
+    id: 22,
+    nome: "Moss",
+    preco: 29.0,
+    descricao:
+      "Musgo aquático que cria um tapete verde, oferecendo abrigo e beleza ao aquário.",
+    beneficios: ["Ornamentação", "Abrigo para Alevinos e Invertebrados"],
+    nivelCuidado: "Baixo",
+    requerimentoLuminosidade: "Baixo",
+    requerimentoFluxo: "Baixo",
+  },
 ];

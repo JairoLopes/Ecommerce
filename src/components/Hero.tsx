@@ -55,7 +55,7 @@ const Hero = () => {
   return (
     <div
       id="hero"
-      className="h-screen mx-auto pt-[6%] pb-20 px-10 mt-[10%] max-sm:mb-[45%] min-sm:mb-[55%] lg:mb-0"
+      className="h-screen mx-auto pt-[6%] pb-20 px-10 mt-[18%] md:mt-[10%] max-sm:mb-[45%] min-sm:mb-[55%] lg:mb-0"
     >
       {/* Div que engloba todo o HERO */}
       <div className="grid lg:grid-cols-3 lg:grid-rows-2 gap-8">
