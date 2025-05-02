@@ -58,7 +58,7 @@ function App() {
   };
 
   return (
-    <main className="relative">
+    <main className="relative overflow-hidden">
       {/* Componente da barra de navegação principal (desktop) */}
       <NavBar onSearch={handleSearch} onOpenCart={toggleCart} />
       {/* Componente da barra de navegação mobile */}

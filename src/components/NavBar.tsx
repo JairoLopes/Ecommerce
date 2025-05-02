@@ -19,7 +19,7 @@ const NavBar = ({ onSearch, onOpenCart }: NavBarProps) => {
 
   return (
     /* Container de toda NAVBAR */
-    <div className="sticky top-0 bg-white z-10">
+    <div className="fixed top-0 right-0 left-0 bg-white z-10">
       {/* Container que irá desaparecer em telas menores, e aparecer em maiores */}
       <div className="hidden lg:block">
         {/* Subcontainer que engloba todo conteudo da NAVBAR */}

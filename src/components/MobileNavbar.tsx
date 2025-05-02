@@ -15,7 +15,7 @@ const MobileNavbar = ({
   onOpenCart,
 }: MobileNavbarProps) => {
   return (
-    <div className="sticky top-0 bg-white z-10 lg:hidden p-4 flex justify-between items-center">
+    <div className="fixed top-0 left-0 right-0 bg-white z-10 lg:hidden p-4 flex justify-between items-center">
       {/* Ícone do Menu */}
       <button
         onClick={onToggleMenu}
