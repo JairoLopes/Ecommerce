@@ -23,7 +23,7 @@ const Footer = () => {
           <ul className="space-y-2">
             <li>
               <a
-                href="/sobre"
+                href="#about"
                 className="hover:text-accent transition-colors duration-300"
               >
                 Sobre Nós
@@ -31,7 +31,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="/tutorial"
+                href="#tutorial"
                 className="hover:text-accent transition-colors duration-300"
               >
                 Tutorial
@@ -39,21 +39,20 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="/plantas"
+                href="#plants"
                 className="hover:text-accent transition-colors duration-300"
               >
-                Nossas Plantas
+                Nossas Espécies
               </a>
             </li>
             <li>
               <a
-                href="/contato"
+                href="#contact"
                 className="hover:text-accent transition-colors duration-300"
               >
                 Contato
               </a>
             </li>
-            {/* Adicione mais links conforme necessário */}
           </ul>
         </div>
 
@@ -65,7 +64,6 @@ const Footer = () => {
             <a
               href="https://jairolopes-dev.vercel.app/"
               target="_blank"
-              rel="noopener noreferrer"
               className="font-semibold text-accent hover:text-accentDark transition-colors duration-300"
             >
               Jairo Lopes
